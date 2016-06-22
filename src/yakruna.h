@@ -81,7 +81,7 @@ enum class Operation : uint8_t {
      AND = 4, /**< & */
      NOT = 5, /**< ! */
      ADD = 6, /**< + */
-     MOD = 7, /**< % */
+     MOD = 7  /**< % */
 };
 
 /** Very simple collection to keep track of active notes */

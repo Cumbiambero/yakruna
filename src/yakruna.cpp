@@ -288,13 +288,10 @@ void processStep() {
     playStep();
 }
 
-/** Timer2 for MIDI */
+/** Timer2 for MIDI and audio out*/
 ISR(TIMER2_COMPA_vect) {
     MIDI.read();
-    if (note > 1) {
-        uint16_t potVal{static_cast<uint16_t> (readDAC(POT_WAVESUB))};
-        operation = static_cast<Operation> (potVal >> 7);
-        mod = potVal ? (WAVES[potVal >> 8][(potVal + osc) % 128 ]) : 0;
+    if (note > 1) {        
         switch(operation) {
             case Operation::NONE : {
                 pwmOsc.write8(WAVES[static_cast<uint8_t> (shape)][osc]);
@@ -330,6 +327,9 @@ ISR(TIMER2_COMPA_vect) {
 ISR(TIMER3_COMPA_vect) {
     shape = static_cast<WaveForms> (readDAC(POT_WAVEFORM) >> 7);
     uint16_t interval{static_cast<uint16_t>(duration - readDAC(POT_DURATION))};
+    uint16_t potVal{static_cast<uint16_t> (readDAC(POT_WAVESUB))};
+    operation = static_cast<Operation> (potVal >> 7);
+    mod = potVal ? (WAVES[potVal >> 8][(potVal + osc) % 128 ]) : 0;
     currentMillis = millis();
     if (running && (currentMillis - previousMillis) > interval) {
         previousMillis = currentMillis;

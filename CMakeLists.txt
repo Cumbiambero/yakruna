@@ -1,7 +1,8 @@
 set(CMAKE_TOOLCHAIN_FILE ./cmake/arduino-cmake/cmake/ArduinoToolchain.cmake)
 
 cmake_minimum_required(VERSION 2.8)
-set (CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_FLAGS "-O3") 
 
 project(yakruna C CXX)
 
