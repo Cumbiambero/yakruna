@@ -7,20 +7,20 @@ different channels for the usage with KORG volca sample. It is usable with
 the KORG sync-signal. Finally it also has a built-in 16 step sequencer and it 
 can produce audio.
 
-### Requirements ###
+## Requirements ##
 cmake arduino-core
 
-### Installation ###
+## Installation ##
 mkdir build  
 cd build  
 cmake ..  
 make upload
 
-### Changes ###
-## 1.0.1 (2017/06/17) ##
+## Changes ##
+### 1.0.1 (2017/06/17) ###
 - Receiving Korg volca sample MIDI in on channel 10 (R channel of Roland MC 505)
 - Only playing notes from the channel set (and channel 10 in sample mode)
 
-## 1.0.0 (2016/06/19) ##
+### 1.0.0 (2016/06/19) ###
 - Initial version
 
