@@ -15,3 +15,12 @@ mkdir build
 cd build  
 cmake ..  
 make upload
+
+### Changes ###
+## 1.0.1 (2017/06/17) ##
+- Receiving Korg volca sample MIDI in on channel 10 (R channel of Roland MC 505)
+- Only playing notes from the channel set (and channel 10 in sample mode)
+
+## 1.0.0 (2016/06/19) ##
+- Initial version
+

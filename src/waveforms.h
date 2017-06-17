@@ -1,8 +1,9 @@
 /**
  * @file        waveforms.h
  * @author      Eduardo Hahn Paredes <cumbiamberos@gmail.com>
- * @copyright   © 2016, Eduardo Hahn Paredes, Ecuador
- * @version     1.0
+ * @copyright   © 2017, Eduardo Hahn Paredes, Ecuador
+ * @version     1.0.1
+ * @repository  https://github.com/Cumbiambero/yakruna
  *
  * @section     LICENCE
  * This program is free software; you can redistribute it and/or modify it
