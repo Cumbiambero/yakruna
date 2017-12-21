@@ -116,22 +116,23 @@ void printNote(uint8_t n) {
     line2[3] = ' ';
     strncpy(&line2[4], &ES[note << 2], 4);
 }
+
 /** Plays a note and updates the display
  * @param ch channel (0 ... 16)
  * @param n MIDI-note number (0 ... 127)
  * @param v velocity (0 ... 127)
  */
-void noteOn(uint8_t ch, uint8_t n, uint8_t v) {       
-    if (ch == channel) {
+void noteOn(uint8_t ch, uint8_t n, uint8_t v) {
+    if (sample && ch == 10) {
+        MIDI.sendNoteOn(60, 127, n % 11);
+        MIDI.sendNoteOff(60, 127, n % 11);
+    } else if (ch == channel) {
         digitalWrite(GATE, HIGH);
         notes.put(n);
         printNote(n);
         pwmCV.write8(PWM_CV_VALUES[n]);
         OCR5A = OCR5A_VALUES[n];
         note = n;
-    } else if (sample && ch == 10) {
-        MIDI.sendNoteOn(60, 127, n % 11);
-        MIDI.sendNoteOff(60, 127, n % 11);
     }
 }
 
