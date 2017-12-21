@@ -17,6 +17,8 @@ cmake ..
 make upload
 
 ## Changes ##
+### 1.0.1 (2017/12/21) ###
+- Load MIDI Thru correctly on start
 ### 1.0.1 (2017/06/17) ###
 - Receiving Korg volca sample MIDI in on channel 10 (R channel of Roland MC 505)
 - Only playing notes from the channel set (and channel 10 in sample mode)

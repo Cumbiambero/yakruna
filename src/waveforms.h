@@ -2,7 +2,7 @@
  * @file        waveforms.h
  * @author      Eduardo Hahn Paredes <cumbiamberos@gmail.com>
  * @copyright   © 2017, Eduardo Hahn Paredes, Ecuador
- * @version     1.0.1
+ * @version     1.0.2
  * @repository  https://github.com/Cumbiambero/yakruna
  *
  * @section     LICENCE

@@ -3,7 +3,7 @@
  * @file        yakruna.cpp
  * @author      Eduardo Hahn Paredes <cumbiamberos@gmail.com>
  * @copyright   © 2017, Eduardo Hahn Paredes, Ecuador
- * @version     1.0.1
+ * @version     1.0.2
  * @repository  https://github.com/Cumbiambero/yakruna
  *
  * @section     LICENCE
@@ -211,9 +211,15 @@ void setup() {
     uint8_t eeprom{eeprom_read_byte(static_cast<uint8_t*>(0))};
     uint8_t temp(eeprom << 4);
     channel = temp ? temp >> 4 : 1;
-    sample = eeprom > 64;
+    sample = eeprom > 63;
     temp = eeprom << 2;
     midiThru = temp >> 6;
+    
+    if(midiThru == 0) {
+        MIDI.turnThruOff();
+    } else {
+        MIDI.turnThruOn(midi::MidiFilterMode(midiThru));
+    }
 }
 
 /** Reading a potentiometer (writing into val) form pots @param pot step */
@@ -400,11 +406,9 @@ void loop() {
                     strncpy(line2, sample ? "activo  " : "inactivo", 8);
                     if (digitalRead(B_2) == LOW) {
                         if (sample) {
-                            MIDI.turnThruOn(midi::MidiFilterMode(midiThru));
                             sample = false;
                             strncpy(line2, "inactivo", 8);
-                        } else {
-                            MIDI.turnThruOff();
+                        } else {                            
                             sample = true;
                             strncpy(line2, "activo  ", 8);
                         }
