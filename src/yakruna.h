@@ -2,7 +2,7 @@
  * @file        yakruna.h
  * @author      Eduardo Hahn Paredes <cumbiamberos@gmail.com>
  * @copyright   © 2017, Eduardo Hahn Paredes, Ecuador
- * @version     1.0.2
+ * @version     1.0.3
  * @repository  https://github.com/Cumbiambero/yakruna
  *
  * @section     LICENCE
@@ -66,6 +66,23 @@ static const char* ES{"do  do# re  re# mi  fa  fa# sol sol#la  la# si  si# "};
 /** Note increments by octave */
 static const uint8_t OCTAVES[10]{0, 12, 24, 32, 48, 60, 72, 84, 96, 108};
 
+/**
+ * Using all cannels in ascending order except for known notes on the 
+ * Korg vocla beats. Using them in the same order (1 to 10) :
+ * 36: kick        38: snare      43: low tom   50: high tom   42: hi-hat closed 
+ * 46: hi-hat open 39: hand clap  75: claves    67: agogo      49: crash cymbal
+ */
+static const uint8_t SAMPLE_CHANNELS[128]{
+    1,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10,  1,  2,  3,  4,  5,  6,
+    7,  8,  9,  10, 1,  2,  3,  4,  5,  6,  7,  8,  9, 10,  1,  2,  3,
+    4,  5,  1,  7,  2,  7, 10,  1,  5,  3,  4,  5,  6,  7,  8 , 10, 4,
+    1,  2,  3,  4,  5,  6,  7,  8,  9, 10,  1,  2,  3,  4,  5,  6,  9,
+    8,  9, 10,  1,  2,  3,  4,  8,  6,  7,  8,  9, 10,  1,  2,  3,  4,
+    5,  6,  7,  8,  9, 10,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10,  1,
+    2,  3,  4,  5,  6,  7,  8,  9, 10,  1,  2,  3,  4,  5,  6,  7,  8,
+    9, 10,  1,  2,  3,  4,  5,  6
+};
+    
 /** Movement directions for the sequencer between MIN_STEP and MAX_STEP */
 enum class Direction : uint8_t {
     FORWARDS = 1,  /**< Movement from left to right */

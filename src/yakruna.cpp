@@ -3,7 +3,7 @@
  * @file        yakruna.cpp
  * @author      Eduardo Hahn Paredes <cumbiamberos@gmail.com>
  * @copyright   © 2017, Eduardo Hahn Paredes, Ecuador
- * @version     1.0.2
+ * @version     1.0.3
  * @repository  https://github.com/Cumbiambero/yakruna
  *
  * @section     LICENCE
@@ -124,8 +124,7 @@ void printNote(uint8_t n) {
  */
 void noteOn(uint8_t ch, uint8_t n, uint8_t v) {
     if (sample && ch == 10) {
-        MIDI.sendNoteOn(60, 127, n % 11);
-        MIDI.sendNoteOff(60, 127, n % 11);
+        MIDI.sendNoteOn(60, v, SAMPLE_CHANNELS[n]);     
     } else if (ch == channel) {
         digitalWrite(GATE, HIGH);
         notes.put(n);

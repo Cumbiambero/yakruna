@@ -17,6 +17,8 @@ cmake ..
 make upload
 
 ## Changes ##
+### 1.0.3 (2017/12/23) ###
+- Improved MIDI channel selection Korg volca sample
 ### 1.0.2 (2017/12/21) ###
 - Load MIDI Thru correctly on start
 - Fix for simultaneous play of Korg volca sample and CV/Gate out
